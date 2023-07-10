@@ -199,17 +199,97 @@ SELECT SUBSTR('BANGALORE', 4,10);
 
 SELECT waterfalls_name,substr(waterfalls_name, 4,3) from waterfalls_info;
 
-
-UPPER,LOWER,CONCAT,INSTR,SUBSTR,LIKE
-
-
-
 Task:
 CREATE 2 TABLES WITH 50 COLUMNS
 INSERT 50 DATA FOR EACH TABLE.
 
 hospital_info
 factory_info
+
+
+
+select * from bank_info;
+
+order by:
+
+select * from bank_info order by id;
+
+select * from bank_info order by id desc;
+
+select * from bank_info order by total_balance;
+UPPER,LOWER,CONCAT,INSTR,SUBSTR,LIKE, ltrim, rtrim,length
+
+UPDATE bank_info set b_name = 'sbi' where id = 1;
+UPDATE bank_info set b_name = 'hdfc' where id = 2;
+UPDATE bank_info set b_name = 'axis' where id = 8;
+UPDATE bank_info set b_name = 'icici' where id = 3;
+
+
+LTRIM:LEFT REMOVE
+
+SELECT LTRIM(b_name) from bank_info;
+
+RTRIM:RIGHT REMOVE
+
+SELECT RTRIM(b_name) from bank_info;
+
+SELECT LTRIM(RTRIM(b_name)) from bank_info;
+
+SELECT b_name,LENGTH(b_name) from bank_info;
+
+distinct: remove duplicates.
+
+SELECT * FROM bank_info;
+
+select distinct(b_name) from bank_info;
+
+Aggregate functions:
+
+1)COUNT : 
+
+SELECT COUNT(id) FROM bank_info;
+
+2) SUM:
+SELECT * FROM bank_info;
+
+SELECT SUM(total_balance) AS sum from bank_info where id <5;
+
+AS: ALIAS NAME
+
+3) MAX:
+
+SELECT MAX(total_balance) as balance from bank_info where id > 5;
+
+4)MIN:
+
+SELECT MIN(total_balance) as min from bank_info where id < 5;
+
+5) AVG:
+
+SELECT AVG(total_balance) as avg from bank_info; 
+
+
+LPAD,RPAD
+
+LPAD: PADDING : LEFT PADDING
+XWORKZ
+		(STRING, final length, Data to add)
+SELECT LPAD('XWORKZ', 8,'A');
+SELECT RPAD('Bang',7,'v');
+
+select LPAD(b_name,10,'bank') from bank_info;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
