@@ -280,20 +280,56 @@ SELECT RPAD('Bang',7,'v');
 select LPAD(b_name,10,'bank') from bank_info;
 
 
+CONSTRAINTS:
+SELECT * FROM bank_info;
+1)NOT NULL:
+CREATE TABLE stu(id int not null unique, s_name varchar(30) unique);
+desc stu;
+select * from stu;
+INSERT INTO stu values(1,'abc');
+INSERT INTO stu values(2,'cde');
+INSERT INTO stu values(3,'def');
+INSERT INTO stu values(null,'ghi');
 
+UNIQUE:
 
+default:
+CREATE TABLE stu(id int primary key, 
+s_name varchar(30) unique, s_loc varchar(30) default 'BNG' );
 
+select * from stu;
+INSERT INTO stu values(1,'abc','MYS');
+INSERT INTO stu(id,s_name) values (2,'cde');
 
+NOT NULL, UNIQUE, DEFAULT, PRIMARY KEY.
 
+primary key:
 
+CREATE TABLE cric_info(id int, c_type varchar(40), 
+primary key(id,c_type));
+composite primary key:
+SELECT * FROM cric_info;
+INSERT INTO cric_info values(1,'odi');
+INSERT INTO cric_info values(3,'test');
 
+primary key: NOT NULL, UNIQUE
+			 ONE PK.
+             COMPOSITE PK.
+             
+FOREIGN KEY:
 
+CREATE TABLE stu_info(id int not null, s_name varchar(40) unique,
+b_id varchar(30) primary key);
 
+select * from stu_info;
+CREATE TABLE branch_info(id int not null unique,b_name varchar(30),
+branch_id varchar(40), foreign key(branch_id) references stu_info(b_id));
+select * from branch_info;
+INSERT INTO branch_info values(1,'cs','CS1');
+INSERT INTO branch_info values(2,'EC','EC2');
+INSERT INTO branch_info values(3,'IS','EC2');
 
-
-
-
-
+TASK:
 
 
 
