@@ -359,3 +359,44 @@ INSERT INTO patient_info VALUES (48,'Manipal','cheerish',true,true,false,10046,5
 INSERT INTO patient_info VALUES (49,'Yashoda','narayana reddy',true,true,true,100471,517178,'manish','Umesh35','vini36','positive27',12888,5949,5549,105048,'andhra pradesh89','BTM80',124948,'good');
 INSERT INTO patient_info VALUES (50,'fortis','umesh reddy',false,true,true,10048,5171179,'chandu kumar','Umesh36','vini37','good7',12889,5950,5550,105049,'andhra pradesh88','BTM90',124949,'good');
 
+select * from banks_info;
+select * from loan_info;
+
+group by,JOINS,SUBQURIES,VIEWS,DATEFUNCTIONS
+
+Group by:
+SELECT COUNT(customers),name_bank from banks_info group by name_bank;
+
+SELECT max(customers),name_bank from banks_info group by name_bank;
+
+SELECT MIN(customers),name_bank from banks_info group by name_bank;
+
+SELECT AVG(customers),name_bank from banks_info group by name_bank;
+
+HAVING:
+SELECT max(customers) AS max,name_bank from banks_info group by 
+name_bank HAVING max < 400;
+
+TASK:
+CREATE 10 TABLES 8 COLUMNS
+INSERT 20 DATA FOR EACH TABLE.
+PERFORM ALTER,UPDATE,DELETE,WHERE,AND,OR,IN,NOT IN, BETWEEN, INSTR, SUBSTR,LTRIM,RTRIM,
+LPAD,RPAD,COUNT,SUM,MAX,MIN,AVG,LIKE,UPPER,LOWER,CONCAT,GROUP BY,HAVING,
+ALIAS FOR COLUMN.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
