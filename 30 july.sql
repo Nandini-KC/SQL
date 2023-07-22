@@ -329,26 +329,51 @@ INSERT INTO branch_info values(1,'cs','CS1');
 INSERT INTO branch_info values(2,'EC','EC2');
 INSERT INTO branch_info values(3,'IS','EC2');
 
-TASK:
+subqueries:
 
 
+CREATE TABLE bank_info(bank_id int primary key,b_name varchar(30), 
+b_ifsc varchar(30),b_loc varchar(30), is_active varchar(20), total_amt bigint);
 
+CREATE TABLE loan_info(loan_id int primary key, l_type varchar(30),
+loanbank_id int,foreign key(loanbank_id) references bank_info(bank_id));
 
+CREATE TABLE cust_info (id int, c_name varchar(30), c_loc varchar(30), c_loanId int,
+foreign key(c_loanid) references loan_info(loan_id));
 
 
 
 
+select * from bank_info;
+select * from loan_info;
+select * from cust_info;
 
 
+subqueries: Inner query, Nested query.
 
+SELECT b_name from bank_info where bank_id = 
+(SELECT loanbank_id from loan_info where l_type = 'Agricultureloan');
 
+SELECT total_amt from bank_info where bank_id =  
+(SELECT loanbank_id from loan_info where l_type = 'Educationloan');
 
+SELECT b_loc from bank_info where bank_id = 
+(SELECT loanbank_id from loan_info where l_type = 'Goldloan');
 
 
+select * from bank_info;
+select * from loan_info;
 
 
+update bank_info set is_active = 'INACTIVE' where bank_id = (SELECT loanbank_id from loan_info where l_type = 'Agricultureloan');
 
+update bank_info set total_amt = 2500000 WHERE bank_id = (SELECT loanbank_id from loan_info where loan_id = 4);
 
+tab1  t1 - col1-pk
+tab2  t2 - col1-pk  col2-fk
+tab3  t3 - col1-pk -col2-fk
+tab4  t4 - col1-pk  col2-fk
+tab5  t5 - col1-fk -id 
 
 
 
@@ -421,7 +446,21 @@ TASK:
 
 
 
-DATABASE: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+: 
 
 
 

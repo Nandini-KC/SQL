@@ -383,6 +383,76 @@ INSERT 20 DATA FOR EACH TABLE.
 PERFORM ALTER,UPDATE,DELETE,WHERE,AND,OR,IN,NOT IN, BETWEEN, INSTR, SUBSTR,LTRIM,RTRIM,
 LPAD,RPAD,COUNT,SUM,MAX,MIN,AVG,LIKE,UPPER,LOWER,CONCAT,GROUP BY,HAVING,
 ALIAS FOR COLUMN.
+ 
+
+
+
+views:
+
+CREATE VIEW bank_view as select bank_id,name_bank,bank_location from banks_info;
+
+SELECT * FROM bank_view;
+
+update banks_info set name_bank = 'SBIBANK' where bank_id = 1;
+
+select * from banks_info;
+select * from loan_info;
+joins:
+1)inner join
+
+CREATE TABLE a(id int, name varchar(30));
+CREATE TABLE c(id int, name varchar(30));
+
+INSERT into a values(1,'abc'),(2,'cde'),(3,'dfg'),(4,'tyu');
+INSERT into c values(1,'abc'),(4,'cde'),(7,'dfg'),(8,'tyu');
+select * from a; 
+select * from b; 
+select * from c;
+innerjoin:
+
+SELECT * FROM a inner join b on a.id = b.id inner join c on c.id = b.id 
+inner join d on d.id = c.id;
+SELECT * FROM a inner join b on a.name = b.name;
+
+select b.bank_id,l.loan_bank_id,b.name_bank,l.loan_processor from
+ banks_info as b left join loan_info as l on b.bank_id = l.loan_bank_id;
+ 
+ 
+ 
+left join:will return all rows from left table and matching records from right table.
+select * from a; 
+select * from b; 
+select * from c;
+
+
+SELECT * FROM a left join b on a.id = b.id left join c on c.id = a.id;
+SELECT * FROM a right join b on a.id = b.id;
+
+CROSS JOIN:cartesian product.
+
+SELECT * FROM A,B;
+1   1 
+2   2
+	3
+	4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
